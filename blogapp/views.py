@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from blogapp.models import Page
+from blogapp.forms import PageForm
 
 ###################### Home ###################### 
 
@@ -10,3 +17,31 @@ def pages(request):
 
 def about(request):
     return render(request, "blogApp/about.html")
+
+###################### Blog pages ###################### 
+
+class PagesListView(ListView):
+    model = Page
+    template_name = "blogApp/pages_list.html"
+
+
+class PageDetailView(DetailView):
+    model = Page
+    template_name = "blogApp/page_detail.html"
+
+
+class PageCreateView(LoginRequiredMixin, CreateView):
+    model = Page
+    success_url = reverse_lazy('blogApp:Page-list')
+    fields = ['name', 'code']
+
+
+class PageUpdateView(LoginRequiredMixin, UpdateView):
+    model = Page
+    success_url = reverse_lazy('blogApp:Page-list')
+    fields = ['name', 'code']
+
+
+class PageDeleteView(LoginRequiredMixin, DeleteView):
+    model = Page
+    success_url = reverse_lazy('blogApp:Page-list')
