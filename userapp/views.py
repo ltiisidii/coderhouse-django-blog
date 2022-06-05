@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from userapp.forms import UserRegisterForm, UserEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.forms.models import model_to_dict
 
 def register(request):
     if request.method == 'POST':
