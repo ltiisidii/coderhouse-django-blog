@@ -1,1 +1,2 @@
-web: gunicorn blogproject.wsgi
+release: python manage.py migrate
+web: gunicorn djangocoder.wsgi
