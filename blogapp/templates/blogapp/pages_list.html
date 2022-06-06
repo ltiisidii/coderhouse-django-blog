@@ -13,6 +13,8 @@
             <a href="{% url 'blogapp:page-detail' page.id  %}" class="btn btn-primary">Read More &rarr;</a>
         </div>
     </div>
+    {% empty %}
+    <h3>Aún no hay post publicados</h3>
     {% endfor %}
 </div>
 </center>
