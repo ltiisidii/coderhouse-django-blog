@@ -1,7 +1,20 @@
 {% extends "base/base.html" %}
 {% load static %}
 {% block content %}
-
-<h2>page index</h2>
+<center>
+<div class="col-md-8 mt-3 left">
+    {% for page in page_list %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{ page.title }}</h2>
+            <p class="card-text text-muted h6">{{ page.author }} | {{ page.created_on}} </p>
+            <img class="card-img" src="{{ page.page_image.url }}" class="rounded" alt="{{ page.title }}">
+            <p class="card-text">{{page.body|slice:":200" }}</p>
+            <a href="{% url 'blogapp:page-detail' page.id  %}" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</center>
 
 {% endblock %}

@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blogapp.models import Page
-from blogapp.forms import PageForm
+from blogapp.forms import *
 
 ###################### Home ###################### 
 
@@ -21,7 +21,8 @@ def about(request):
 ###################### Blog pages ###################### 
 
 class PagesListView(ListView):
-    model = Page
+    #model = Page
+    queryset = Page.objects.filter(status=1).order_by('-created_on')
     template_name = "blogApp/pages_list.html"
 
 
