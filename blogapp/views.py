@@ -13,36 +13,36 @@ def index(request):
     return render(request, "blogapp/index.html")
 
 def pages(request):
-    return render(request, "blogApp/pages-index.html")
+    return render(request, "blogapp/pages-index.html")
 
 def about(request):
-    return render(request, "blogApp/about.html")
+    return render(request, "blogapp/about.html")
 
 ###################### Blog pages ###################### 
 
 class PagesListView(ListView):
     #model = Page
     queryset = Page.objects.filter(status=1).order_by('-created_on')
-    template_name = "blogApp/pages_list.html"
+    template_name = "blogapp/pages_list.html"
 
 
 class PageDetailView(DetailView):
     model = Page
-    template_name = "blogApp/page_detail.html"
+    template_name = "blogapp/page_detail.html"
 
 
 class PageCreateView(LoginRequiredMixin, CreateView):
     model = Page
-    success_url = reverse_lazy('blogApp:Page-list')
+    success_url = reverse_lazy('blogapp:Page-list')
     fields = ['name', 'code']
 
 
 class PageUpdateView(LoginRequiredMixin, UpdateView):
     model = Page
-    success_url = reverse_lazy('blogApp:Page-list')
+    success_url = reverse_lazy('blogapp:Page-list')
     fields = ['name', 'code']
 
 
 class PageDeleteView(LoginRequiredMixin, DeleteView):
     model = Page
-    success_url = reverse_lazy('blogApp:Page-list')
+    success_url = reverse_lazy('blogapp:Page-list')
