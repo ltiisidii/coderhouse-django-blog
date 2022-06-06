@@ -8,3 +8,17 @@ class Avatar(models.Model):
 
     def __str__(self):
         return f'url: {self.image.url}'
+
+class Bio(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return f'{self.description} '
+
+class Website(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    website = models.URLField(max_length=200)
+
+    def __str__(self):
+        return f'{self.website} '
