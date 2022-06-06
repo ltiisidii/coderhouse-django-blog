@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from userapp.models import Avatar
+from userapp.models import Avatar, Bio, Website
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -26,7 +26,7 @@ class UserEditForm(UserCreationForm):
     email = forms.EmailField(label='Correo electrónico')
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir la contraseña', widget=forms.PasswordInput)
-    
+
 
     class Meta:
         model = User
@@ -38,3 +38,16 @@ class AvatarForm(ModelForm):
     class Meta:
         model = Avatar
         fields = ('image', )
+
+class BioForm(ModelForm):
+    class Meta:
+        model = Bio
+        fields = ('description', )
+
+class WebsiteForm(ModelForm):
+    class Meta:
+        model = Website
+        fields = ('website', )
+      
+class SearchUser(forms.Form):
+    usuario = forms.CharField(max_length=60, label='Name of User')

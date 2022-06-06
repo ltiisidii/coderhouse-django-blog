@@ -24,12 +24,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'blogapp:Home' %}">Home</a>
+                <a class="navbar-brand" href="{% url 'home:main' %}">Home</a>
                 <a class="navbar-brand" href="{% url 'blogapp:pages-list' %}">Pages</a>
                 <a class="navbar-brand" href="{% url 'blogapp:About' %}">About Us</a>
                 {% if user.is_authenticated %}
                 <!-- <a class="btn btn-secondary" href="{% url 'userapp:user-update' %}">Editar usuario</a>-->
                 <a class="btn btn-secondary" href="{% url 'userapp:user-update' %}">{{ user.username }}</a>
+                <a href="{% url 'userapp:avatar-load' %}"><img src="{{url}}" alt="" width="15%" height="15%"></a>
                 <a class="btn btn-primary" href="{% url 'userapp:user-logout' %}">Cerrar Sesión</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'userapp:user-login' %}">Iniciar Sesión</a>
@@ -43,7 +44,6 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Bienvenido <br> Django-CoderHouse</h1>
                             {% if messages %}
                                 {% for message in messages %}
                                 <h4><p style="color: rgb(131, 31, 0)" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p></h4>
