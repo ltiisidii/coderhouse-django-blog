@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('blogapp.urls')),
     path('', include('userapp.urls')),
+    path('', include('messageapp.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = "blogproject.views.page_not_found_view"

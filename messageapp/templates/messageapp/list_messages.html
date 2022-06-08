@@ -1,0 +1,54 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <center><a class="btn btn-secondary" href="{% url 'messageapp:send_messages' %}" class="tm-nav-link">Enviar mensaje</a></center>
+
+{% if sent_messages %}
+    <div class="container-fluid">
+        <main class="tm-main">        
+            <div class="row tm-row">
+                <h1 style="color:#ffffff"> Mensajes enviados</h1>
+                {% for message in sent_messages %}                
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Hacia: {{ message.user_destination }}</h3>
+                            </div>
+                            <div class="card-text">
+                                <p>{{ message.message_date }} - {{ message.text_message }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        {% else %}
+                        <div class="alert alert-dark" role="alert">
+                            <center><h3>No hay mensajes enviados</h3></center>
+                        </div>
+{% endif %}
+
+{% if received_messages %}
+                <h1 style="color:rgb(255, 255, 255)"> Mensajes Recibidos</h1>
+                {% for message in received_messages %}
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>De: {{ message.user_origin }}</h3>
+                                
+                            </div>
+                            <div class="card-text">
+                                <p>{{ message.message_date }} - {{ message.text_message }}</p>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        
+                        {% else %}
+                        <div class="alert alert-dark" role="alert">
+                            <center><h3>No hay mensajes recibidos</h3></center>
+                        </div>
+{% endif %}
+
+
+{% endblock %}
