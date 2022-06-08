@@ -1,3 +1,4 @@
+.env
 venv/*
 *.log
 *.pot
@@ -5,3 +6,6 @@ venv/*
 */__pycache__/
 x_*
 db.sqlite3
+static/*
+staticfiles/*
+media/*
