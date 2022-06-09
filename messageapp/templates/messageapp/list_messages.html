@@ -17,7 +17,7 @@
                                 <h3>Hacia: {{ message.user_destination }}</h3>
                             </div>
                             <div class="card-text">
-                                <p>{{ message.message_date }} - {{ message.text_message }}</p>
+                                <p>{{ message.pub_date }} - <b>{{ message.text_message }}</b></p>
                             </div>
                         </div>
                         {% endfor %}
@@ -38,7 +38,7 @@
                                 
                             </div>
                             <div class="card-text">
-                                <p>{{ message.message_date }} - {{ message.text_message }}</p>
+                                <p>{{ message.pub_date }} - <b>{{ message.text_message }}</b></p>
                             </div>
                         </div>
 

@@ -7,3 +7,6 @@ class Message(models.Model):
     user_destination = models.CharField(max_length=100)
     pub_date = models.DateTimeField(default=timezone.now)
     text_message = models.CharField(max_length=250)
+
+    class Meta:
+        ordering=['pub_date']
