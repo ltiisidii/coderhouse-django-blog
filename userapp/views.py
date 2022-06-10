@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.forms.models import model_to_dict
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Avatar
+from .models import Avatar, Profile
 
 def register(request):
     if request.method == 'POST':

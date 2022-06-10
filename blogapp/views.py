@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blogapp.models import Page
 from blogapp.forms import *
+from userapp.models import *
 
 ###################### Home ###################### 
 
@@ -21,7 +22,7 @@ def about(request):
 ###################### Blog pages ###################### 
 
 class PagesListView(ListView):
-    #model = Page
+    model = Page
     queryset = Page.objects.filter(status=1).order_by('-created_on')
     template_name = "blogapp/pages_list.html"
 
@@ -46,3 +47,5 @@ class PageUpdateView(LoginRequiredMixin, UpdateView):
 class PageDeleteView(LoginRequiredMixin, DeleteView):
     model = Page
     success_url = reverse_lazy('blogapp:pages-list')
+
+
