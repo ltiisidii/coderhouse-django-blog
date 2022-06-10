@@ -13,7 +13,17 @@
     {% for page in page_list %}
     <div class="card mb-4">
         <div class="card-body">
-            <h2 class="card-title">{{ page.title }}</h2>
+            <h2 class="card-title">{{ page.title }}  
+                {% if user.is_superuser %}
+                <a href="{% url 'blogapp:page-update' page.id %}">
+                    <i class="fa fa-pencil" style="color: rgb(0, 0, 190);"></i>
+                </a>
+                |
+                <a href="{% url 'blogapp:page-delete' page.id %}">
+                    <i class="fa fa-trash" style="color: rgb(0, 0, 100);"></i>
+                </a>
+                {%endif%}
+            </h2>
             <p class="card-text text-muted h6">{{ page.author }} | {{ page.created_on}} </p>
             <img class="card-img" src="{{ page.page_image.url }}" class="rounded" alt="{{ page.title }}">
             <p class="card-text">{{page.body|slice:":200" }}</p>
