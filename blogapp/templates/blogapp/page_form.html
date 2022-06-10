@@ -1,0 +1,16 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ CrearPost.as_p }}
+
+    <input type="submit" class="btn btn-primary" value="Guardar post" />
+
+</form>
+
+{% endif %}
+{% endblock %}

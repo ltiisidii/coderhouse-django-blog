@@ -2,17 +2,16 @@
 {% load static %}
 {% block content %}
 <center>
-<div class="container">
-    <div class="row">
+
       <div class="col-md-8 card mb-4  mt-3 left  top">
         <div class="card-body">
           <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
           <p class=" text-muted">{{ page.author }} | {{ page.created_on }}</p>
+          <img class="card-img" src="{{ page.page_image.url }}" class="rounded" alt="{{ page.title }}">
           <p class="card-text ">{{ object.body | safe }}</p>
         </div>
       </div>
-      
-    </div>
-  </div>
+      <p><a class="btn2 btn-primary" href="{% url 'blogapp:pages-list' %}">Regresar a la lista de post</a></p>
+
 </center>
 {% endblock %}

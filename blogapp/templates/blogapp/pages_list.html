@@ -1,6 +1,13 @@
 {% extends "home/index.html" %}
 {% load static %}
 {% block content %}
+
+{% if user.is_authenticated %}
+<a class="card_custom" href="{% url 'blogapp:page-add' %}">Crear nuevo post</a>
+{% endif %}
+<hr>
+</hr>
+
 <center>
 <div class="col-md-8 mt-3 left">
     {% for page in page_list %}

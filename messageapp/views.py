@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from messageapp.models import Message
 from messageapp.forms import MessageForm
 import datetime
-from django.contrib.auth.decorators import *
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 

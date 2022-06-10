@@ -1,6 +1,4 @@
 from django.contrib import admin
-from userapp.models import Avatar, Bio, Website
+from userapp.models import Avatar
 
 admin.site.register(Avatar)
-admin.site.register(Bio)
-admin.site.register(Website)

@@ -10,8 +10,9 @@ urlpatterns = [
     path('', include('blogapp.urls')),
     path('', include('userapp.urls')),
     path('', include('messageapp.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
-handler404 = "blogproject.views.page_not_found_view"
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
