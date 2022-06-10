@@ -9,7 +9,28 @@
           <p class=" text-muted">{{ page.author }} | {{ page.created_on }}</p>
           <img class="card-img" src="{{ page.page_image.url }}" class="rounded" alt="{{ page.title }}">
           <p class="card-text ">{{ object.body|safe }}</p>
-          <p class="card-text "><img src="{{ page.author.image.url }}" alt="Avatar de {{ page.author }}" width="15%" height="15%"></p>
+          
+          
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="Avatar de {{ page.author }}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">
+                      {{ page.author }}
+                    </h5>
+                    <p class="text-muted">
+                      Website | Facebook | Twitter | Instagram
+                    </p>
+                  <p class="card-text">Aca tendria que estar la descripcion del profile (userapp).</p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       <p><a class="btn2 btn-primary" href="{% url 'blogapp:pages-list' %}">Regresar a la lista de post</a></p>
