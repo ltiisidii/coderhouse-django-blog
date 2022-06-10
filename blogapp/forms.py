@@ -4,10 +4,6 @@ from blogapp.models import Page
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextFormField
 
-#class PageForm(forms.Form):
-#    name = forms.CharField(max_length=40, min_length=3, label='Nombre')
-#    code = forms.IntegerField(label='Camada')
-
 class CrearPost(forms.ModelForm):
     
     body = RichTextFormField(required=True)
