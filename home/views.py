@@ -34,9 +34,9 @@ def search(request):
         search_param = request.GET['search_param']
         query = Q(name__contains=search_param)
         query.add(Q(code__contains=search_param), Q.OR)
-        courses = Course.objects.filter(query)
+        pages = Page.objects.filter(query)
         context_dict.update({
-            'courses': courses,
+            'pages': pages,
             'search_param': search_param,
         })
     return render(

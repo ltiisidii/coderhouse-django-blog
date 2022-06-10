@@ -26,7 +26,7 @@
             </h2>
             <p class="card-text text-muted h6">{{ page.author }} | {{ page.created_on}} </p>
             <img class="card-img" src="{{ page.page_image.url }}" class="rounded" alt="{{ page.title }}">
-            <p class="card-text">{{page.body|slice:":200" }}</p>
+            <p class="card-text">{{page.body|slice:":200"|safe  }}</p>
             <a href="{% url 'blogapp:page-detail' page.id  %}" class="btn btn-primary">Read More &rarr;</a>
         </div>
     </div>
