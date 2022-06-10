@@ -141,3 +141,5 @@ MEDIA_URL = '/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOGIN_URL = '/accounts/login'
+
+#CKEDITOR_UPLOAD_PATH = "uploads/"

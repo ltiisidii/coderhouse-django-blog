@@ -1,11 +1,15 @@
 {% extends "home/index.html" %}
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+{% endblock %}
 {% load static %}
 {% block content %}
 {% if user.is_authenticated %}
 
 <form action="" method="POST">
     {% csrf_token %}
-
+    {{ form.media }}
     {{ form.as_p }}
 
     <input type="submit" class="btn btn-primary" value="Guardar post" />
