@@ -28,15 +28,5 @@
 </hr>
 
 
-{% if courses %}
-<ul>
-    {% for course in courses %}
-    <li>
-        Curso: {{course.name}}
-        -- Camada: {{course.code}}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
 
 {% endblock %}
