@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from userapp.models import Avatar, Profile
+from userapp.models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -19,32 +19,23 @@ class UserRegisterForm(UserCreationForm):
         help_texts = {k: "" for k in fields}
 
 
-class UserEditForm(UserCreationForm):
-
-    first_name = forms.CharField(label='Nombre', min_length=3)
-    last_name = forms.CharField(label='Apellido', min_length=3)
-    email = forms.EmailField(label='Correo electrónico')
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repetir la contraseña', widget=forms.PasswordInput)
-    description = forms.CharField(label='Bio', min_length=3)
-    website_url = forms.URLField(label='Website', min_length=3)
-    facebook_url = forms.URLField(label='Facebook Page', min_length=3)
-    twitter_url = forms.URLField(label='Twitter Profile', min_length=3)
-    instagram_url = forms.URLField(label='Instagram Profile', min_length=3)
+class UpdateUserForm(forms.ModelForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(required=True,
+                             widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'description', 'website_url', 'facebook_url', 'twitter_url', 'instagram_url', 'password1', 'password2',]
-        widgets = {
-            'email': forms.TextInput(attrs={'readonly': 'readonly'}),
-        }        
-        help_texts = {k: "" for k in fields}
+        fields = ['username', 'email']
 
 
-class AvatarForm(ModelForm):
+class UpdateProfileForm(forms.ModelForm):
+    avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+    bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+    url = forms.URLField(label='Your website', required=False)
+
     class Meta:
-        model = Avatar
-        fields = ('image', )
-      
-class SearchUser(forms.Form):
-    usuario = forms.CharField(max_length=60, label='Name of User')
+        model = Profile
+        fields = ['avatar', 'bio', 'url']   

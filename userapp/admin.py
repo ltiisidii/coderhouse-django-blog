@@ -1,8 +1,7 @@
 from django.contrib import admin
-from userapp.models import Avatar, Profile
+from userapp.models import Profile
 
 class profileusers(admin.ModelAdmin):
-    list_display = ('user', 'description', 'website_url','facebook_url','twitter_url','instagram_url')
+    list_display = ('user', 'bio', 'url')
 
-admin.site.register(Avatar)
 admin.site.register(Profile, profileusers)

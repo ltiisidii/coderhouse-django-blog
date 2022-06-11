@@ -5,12 +5,18 @@
 <h2>Formulario para editar usuarios</h2>
 <hr></hr>
 <h3>Usuario: {{user.username}}</h3>
+{{ user.profile.avatar.url }}
 
-
-<form action="" method="POST">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-primary" value="Guardar Usuario" />
+
+    {{ user_form.as_table }}
+    
+    {{ profile_form.as_table }}
+        
+    <br><br>
+    <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+    <button type="reset" class="btn btn-dark btn-lg">Reset</button>
 </form>
 
 {% endblock %}
