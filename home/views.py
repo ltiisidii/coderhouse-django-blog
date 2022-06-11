@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.db.models import Q
 
 from blogapp.models import Page
+from django.views.generic import ListView
 
+class index(ListView): 
+    model = Page
+    template_name = 'home/main.html'
 
-def index(request):
-    return render(request, "home/main.html", )
+#def index(request):
+#    return render(request, "home/main.html", )
 
 
 def search(request):
