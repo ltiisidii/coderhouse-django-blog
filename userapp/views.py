@@ -67,9 +67,9 @@ def profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='userapp/avatar_form.html')
+            return redirect(to='userapp:user-update')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'userapp/avatar_form.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'userapp/user_form.html', {'user_form': user_form, 'profile_form': profile_form})
