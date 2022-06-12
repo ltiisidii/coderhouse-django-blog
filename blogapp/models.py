@@ -12,7 +12,7 @@ class Page(models.Model):
     # Titulo, subtitulo, cuerpo, autor, fecha y una imagen (minimo,obligatorio)
     title = models.CharField(max_length=200, unique=True)
     subtitle = models.CharField(max_length=255)
-    #slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     updated_on = models.DateTimeField(auto_now= True)
     body = RichTextField(null=True, blank=True)

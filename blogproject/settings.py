@@ -1,11 +1,11 @@
 from pathlib import Path
 import os
-#import django_heroku
-#import dj_database_url
-#import environ
+import django_heroku
+import dj_database_url
+import environ
 
-#env = environ.Env()
-#environ.Env.read_env()
+env = environ.Env()
+environ.Env.read_env()
 
 # Heroku configs
 # django_heroku.settings(locals())
@@ -26,13 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u!tw*%%aol9nyst_gta8^k3xpv83(xoc=2ft(n#1c32-##nput'
-
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -143,3 +141,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 LOGIN_URL = '/accounts/login'
 
 #CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# Heroku configs
+django_heroku.settings(locals())
+db_from_env = dj_database_url.config(conn_max_age=1000)
+DATABASES['default'].update(db_from_env)
