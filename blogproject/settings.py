@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fontawesomefree',
     'ckeditor',
+    'cloudinary',
     'home',
     'blogapp',
     'userapp',
@@ -149,3 +150,12 @@ db_from_env = dj_database_url.config(conn_max_age=1000)
 DATABASES['default'].update(db_from_env)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('YOUR_CLOUD_NAME'),
+    'API_KEY': env('YOUR_API_KEY'),
+    'API_SECRET': env('YOUR_API_SECRET'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+GOOGLE_RECAPTCHA_SITE_KEY = env('GOOGLERECAPTCHASITEKEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = env('GOOGLERECAPTCHASECRETKEY'),
