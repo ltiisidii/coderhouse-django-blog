@@ -153,4 +153,4 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 GOOGLE_RECAPTCHA_SITE_KEY = env('GOOGLERECAPTCHASITEKEY')
 GOOGLE_RECAPTCHA_SECRET_KEY = env('GOOGLERECAPTCHASECRETKEY'),
 
-CSRF_TRUSTED_ORIGINS = env.list('CSRFTRUSTEDORIGINS')
+CSRF_TRUSTED_ORIGINS = ['https://coderhouse-django-blog.herokuapp.com','https://blog.appspot.cc','http://127.0.0.1']
