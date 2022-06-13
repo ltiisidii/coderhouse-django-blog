@@ -7,13 +7,6 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-# Heroku configs
-# django_heroku.settings(locals())
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -159,3 +152,5 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 GOOGLE_RECAPTCHA_SITE_KEY = env('GOOGLERECAPTCHASITEKEY')
 GOOGLE_RECAPTCHA_SECRET_KEY = env('GOOGLERECAPTCHASECRETKEY'),
+
+CSRF_TRUSTED_ORIGINS = env.list('CSRFTRUSTEDORIGINS')
