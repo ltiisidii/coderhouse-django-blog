@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blogapp',
     'userapp',
     'messageapp',
+    'django_extensions',
     ]
 
 MIDDLEWARE = [

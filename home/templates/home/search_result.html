@@ -11,10 +11,12 @@
     {% for page in allPosts  %}
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">Article  by {{page.author}}</strong>
-            <h3 class="mb-0">{{page.title}}</h3>
-            <div class="mb-1 text-muted">{{ page.created_on}}</div>
-            <p class="card-text mb-auto">{{ page.body | safe |  truncatechars:500 }}</p>
+            <strong class="d-inline-block mb-2 text-primary">Post  by {{ page.author }}</strong>
+            <h3 class="mb-0">{{ page.title }}</h3>
+            <div class="mb-1 text-muted">{{ page.created_on }}</div>
+            {% if page.body %}
+            <p class="card-text mb-auto">{{ page.body|safe|striptags|slice:500 }}</p>
+            {% endif %}
             <div class="my-2">
             	<a href="{% url 'blogapp:page-detail' page.id  %}" role="button" class="btn btn-primary">Continue reading</a>
             </div>
@@ -24,8 +26,7 @@
         </div>
         {% empty %}
         <h3>No se encontro ningun resultado</h3>
-    
         {% endfor %}
-    </div>
+</div>
 
 {% endblock %}
