@@ -5,8 +5,14 @@
 ### Integrantes 
 
 1- 
+
 2- 
+
 3- 
+
+### Casos de prueba
+
+[Link a drive ](https://docs.google.com/spreadsheets/d/1OYS7iVZuy_dkSCIztWNZG1nNKS8MnjT4/edit?usp=sharing&ouid=107614986716728974196&rtpof=true&sd=true)
 
 ### Descripcion de tareas:
 
@@ -108,6 +114,3 @@ Los requisitos extra son funcionalidades opcionales que no se incluyen en los cr
 
 [![Ver el video](https://i.imgur.com/noOL6UB.jpg)](https://youtu.be/S7SLep244ss)
 
-### Casos de prueba
-
-[Link a drive ](https://docs.google.com/spreadsheets/d/1OYS7iVZuy_dkSCIztWNZG1nNKS8MnjT4/edit?usp=sharing&ouid=107614986716728974196&rtpof=true&sd=true)
