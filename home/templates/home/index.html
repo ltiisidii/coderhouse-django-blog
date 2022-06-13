@@ -17,8 +17,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static '/css/styles.css' %}" rel="stylesheet" />
-        <!-- Awesome fonts -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Awesome fonts 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     </head>
     <body>
         <!-- Navigation-->
@@ -70,49 +70,53 @@
                 </div>
             </div>
         </header>
-        <!-- Footer-->
-        <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="{% url 'blogapp:About' %}">About</a></li>
-                            <!--  
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li> -->
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
-                    </div>
-                    <!--  <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div> -->
-                </div>
-            </div>
-            <div class="container">
-                {% if user.is_superuser %}
-                    <h5><p style="color: rgb(82, 82, 82)" >This user is: SuperUser</p></h5>
-                {% else %}
-                    <h5><p style="color: rgb(82, 82, 82)" >This user is: Not SuperUser</p></h5>
-                {%endif%}
-            </div>
-        </footer>
+
+    <!--Footer-->
+    <footer class="bg-light text-lg-start">
+        <div class="py-4 text-center">
+            {% if user.is_superuser %}
+            <h5><p style="color: rgb(82, 82, 82)" >This user is: SuperUser</p></h5>
+            {% else %}
+            <h5><p style="color: rgb(82, 82, 82)" >This user is: Not SuperUser</p></h5>
+            {%endif%}
+        </div>
+
+        <hr class="m-0" />
+
+        <div class="text-center py-4 align-items-center">
+        <p>Follow Coderhouse on social media</p>
+        <a href="https://www.youtube.com/channel/UCeFRG6700bzqYI0M_9vyelw" class="btn btn-primary m-1" role="button"
+            rel="nofollow" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.facebook.com/Coderhouse/" class="btn btn-primary m-1" role="button" rel="nofollow"
+            target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/coderhouse" class="btn btn-primary m-1" role="button" rel="nofollow"
+            target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://github.com/ltiisidii/coderhouse-django-blog" class="btn btn-primary m-1" role="button" rel="nofollow"
+            target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-dark" href="https://www.coderhouse.com/">coderhouse.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!--Footer-->        
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static '/js/scripts.js' %}"></script>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
         </body>
 </html>
