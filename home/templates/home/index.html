@@ -44,6 +44,7 @@
                 <a class="btn btn-primary" href="{% url 'userapp:user-logout' %}">Cerrar Sesión</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'userapp:user-login' %}">Iniciar Sesión</a>
+                <a class="btn btn-primary" href="{% url 'userapp:user-register' %}">Registro</a>
                 {% endif %}
             </div>
         </nav>
@@ -74,10 +75,12 @@
     <!--Footer-->
     <footer class="bg-light text-lg-start">
         <div class="py-4 text-center">
-            {% if user.is_superuser %}
-            <h5><p style="color: rgb(82, 82, 82)" >This user is: SuperUser</p></h5>
-            {% else %}
-            <h5><p style="color: rgb(82, 82, 82)" >This user is: Not SuperUser</p></h5>
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <h5><p style="color: rgb(82, 82, 82)" >This user is: SuperUser</p></h5>
+                {% else %}
+                <h5><p style="color: rgb(82, 82, 82)" >This user is: Not SuperUser</p></h5>
+                {%endif%}
             {%endif%}
         </div>
 
