@@ -4,11 +4,11 @@
 
 ### Integrantes 
 
-1- 
+1- Jonatan W
 
-2- 
+2- jhersvin q
 
-3- 
+3- jhan r
 
 ### Casos de prueba
 
