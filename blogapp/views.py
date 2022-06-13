@@ -35,7 +35,7 @@ class PageDetailView(DetailView):
 class PageCreateView(LoginRequiredMixin, CreateView):
     model = Page
     success_url = reverse_lazy('blogapp:pages-list')
-    fields = ['title', 'subtitle', 'body', 'status', 'page_image','author']
+    fields = ['title', 'subtitle', 'slug', 'body', 'status', 'page_image','author']
 
 
 class PageUpdateView(LoginRequiredMixin, UpdateView):

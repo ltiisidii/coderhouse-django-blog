@@ -18,7 +18,7 @@
             <p class="card-text mb-auto">{{ page.body|safe|striptags|slice:500 }}</p>
             {% endif %}
             <div class="my-2">
-            	<a href="{% url 'blogapp:page-detail' page.id  %}" role="button" class="btn btn-primary">Continue reading</a>
+            	<a href="{% url 'blogapp:page-detail' page.id  %}" role="button" class="btn btn-primary">Read More</a>
             </div>
             
         </div>

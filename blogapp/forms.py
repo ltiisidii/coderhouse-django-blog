@@ -10,7 +10,7 @@ class CrearPost(forms.ModelForm):
 
     class Meta:
         model = Page
-        fields = ['title','subtitle','body', 'page_image','author']
+        fields = ['title','subtitle','slug','body', 'page_image','author']
         #help_texts = {k:'' for k in fields }
 
 class PostSearch(forms.Form):
