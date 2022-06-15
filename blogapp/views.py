@@ -36,7 +36,7 @@ class PageDetailView(DetailView):
 
 class PageCreateView(LoginRequiredMixin, CreateView):
     model = Page
-    fields = ['title', 'subtitle', 'slug', 'body', 'status', 'page_image']
+    fields = ['title', 'subtitle', 'body', 'status', 'page_image']
     def get_success_url(self):
         messages.success(
             self.request, 'Your post has been created successfully.')
