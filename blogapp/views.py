@@ -4,6 +4,8 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.utils.text import slugify
 from blogapp.models import Page
 from blogapp.forms import *
 from userapp.models import *
@@ -34,9 +36,18 @@ class PageDetailView(DetailView):
 
 class PageCreateView(LoginRequiredMixin, CreateView):
     model = Page
-    success_url = reverse_lazy('blogapp:pages-list')
-    fields = ['title', 'subtitle', 'slug', 'body', 'status', 'page_image','author']
-
+    fields = ['title', 'subtitle', 'slug', 'body', 'status', 'page_image']
+    def get_success_url(self):
+        messages.success(
+            self.request, 'Your post has been created successfully.')
+        return reverse_lazy("blogapp:pages-list")
+    
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+        obj.slug = slugify(form.cleaned_data['title'])
+        obj.save()
+        return super().form_valid(form)
 
 class PageUpdateView(LoginRequiredMixin, UpdateView):
     model = Page
