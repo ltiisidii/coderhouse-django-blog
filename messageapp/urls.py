@@ -3,6 +3,7 @@ from . import views
 
 app_name='messageapp'
 urlpatterns = [
-    path('messages', views.messages, name='list-messages'),
-    path('messages/send',views.send_messages, name="send_messages"),
+    path('messages', views.Inbox, name='list-messages'),
+    path('message/send/<pk>',views.NewMessage.as_view(), name="send_messages"),
+    path('message/list_users',views.listusers, name="list-users"),
     ]    

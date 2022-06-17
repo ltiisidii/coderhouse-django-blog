@@ -1,35 +1,32 @@
 from django.shortcuts import render, redirect
 from messageapp.models import Message
-from messageapp.forms import MessageForm
-import datetime
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib import messages
-
-
-@login_required
-def messages(request):
-    sent_messages = Message.objects.filter(user_origin = request.user.username)
-    received_messages = Message.objects.filter(user_destination = request.user.username)
-    return render(request,'messageapp/list_messages.html',{"sent_messages":sent_messages,"received_messages":received_messages})
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy, reverse
 
 @login_required
-def send_messages(request):
-    if request.method == 'POST':
-        form = MessageForm(request.POST)
-        if form.is_valid():
-            information = form.cleaned_data
-            user_origin = User.objects.filter(username=information['user_origin'])
-            user_destination = User.objects.filter(username=information['user_destination'])
-            if(user_origin.count() > 0 and user_destination.count() > 0):
-                message = Message(user_origin=information["user_origin"],user_destination=information["user_destination"],text_message=information["text_message"])
-                message.save()
-            else:
-                form = MessageForm()
-                return render(request,'messageapp/send_message.html',{'form':form,"message":"No existe alguno de lo usuarios ingresados"})
-            
-        return redirect ('messageapp:list-messages')
-      
-    else:
-        form = MessageForm()
-        return render(request,'messageapp/send_message.html',{'form':form})
+def listusers(request):
+    people = User.objects.all()
+    context = {'people':people}
+    return render(request, 'messageapp/message_list.html', context)
+
+class NewMessage(LoginRequiredMixin,CreateView):
+    model = Message
+    fields = ['text_message']   
+    def form_valid(self,form):
+        form.instance.user_origin=self.request.user
+        form.instance.user_destination = User.objects.get(id=self.kwargs['pk'])
+        form.save()
+        return super().form_valid(form)
+    def get_success_url(self) -> str:
+        messages.success(self.request, ('Mensaje enviado con éxito!'))
+        return reverse_lazy('messageapp:list-messages')
+
+@login_required
+def Inbox(request):
+    pms = Message.objects.filter(user_destination_id=request.user).order_by('-pub_date')
+    context = {'pms':pms}
+    return render(request, 'messageapp/inbox.html', context)
