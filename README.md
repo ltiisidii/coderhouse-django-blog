@@ -4,17 +4,15 @@
 
 ### Integrantes 
 
-1- Jonatan W
-
-2- jhersvin q
-
-3- jhan r
+Jonatan W
 
 ### Casos de prueba
 
 [Link a drive ](https://docs.google.com/spreadsheets/d/1OYS7iVZuy_dkSCIztWNZG1nNKS8MnjT4/edit?usp=sharing&ouid=107614986716728974196&rtpof=true&sd=true)
 
 ### Descripcion de tareas:
+
+Realice la construccion completa del trabajo final utilizando Django, como hosting Heroku (PostgreSQL+Archivos Estaticos) y Cloudinary (avatar+media)
 
 ### Consigna: 
 

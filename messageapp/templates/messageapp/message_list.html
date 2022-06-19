@@ -11,10 +11,10 @@
         {% if person != request.user %}
             <form method="POST" action="{% url 'messageapp:send_messages' person.id %}" >{% csrf_token %}
                 <p class="text-lowercase">Usuario: {{ person }} </p>
-                <p class="text-lowercase">Mensaje: <input type="text" name="text_message" class="input-mensaje-persona" placeholder="mensaje de ejemplo"></p>
+                <p class="text-lowercase">Mensaje: <input type="text" name="text_message" class="" placeholder="mensaje de ejemplo"></p>
                 <button type="submit" class="boton">Enviar<i class=""></i></button>
             </form>
-            <hr class="separator">
+            <hr>
         {% endif %}
         {% endfor %}
     </div>

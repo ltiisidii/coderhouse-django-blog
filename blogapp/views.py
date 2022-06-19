@@ -71,12 +71,10 @@ class PageUpdateView(LoginRequiredMixin, UpdateView):
 
 class PageDeleteView(LoginRequiredMixin, DeleteView):
     model = Page
-    #success_url = reverse_lazy('blogapp:pages-list')
+    template_name = "blogapp/page_confirm_delete.html"
     def get_success_url(self):
         messages.success(
             self.request, 'Your post has been deleted successfully.')
         return reverse_lazy("blogapp:pages-list")
 
-    def get_queryset(self):
-        return self.model.objects.filter(author=self.request.user)
 
