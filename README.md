@@ -112,6 +112,89 @@ Los requisitos extra son funcionalidades opcionales que no se incluyen en los cr
     
     * Utilizar python puro para el proyecto final (se espera el uso de Django)
 
+### Instrucciones para ejecutar este proyecto localmente
+
+- Clonar el proyecto 
+
+```bash
+git clone https://github.com/ltiisidii/coderhouse-django-blog.git
+
+cd coderhouse-django-blog
+
+```
+
+- Crear y activar entorno virtual (Windows)
+```bash
+C:\>python -m venv c:\ruta\al\entorno\virtual
+C:\>c:\ruta\al\entorno\virtual\scripts\activate.bat
+```
+
+- Crear y activar entorno virtual (Linux)
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+- Crear y activar entorno virtual (Linux)
+
+```bash
+export SECRET_KEY='4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs'
+export DEBUG='True'
+export ALLOWED_HOSTS='*,'
+export CLOUDINARY_URL=''
+export YOUR_CLOUD_NAME=''
+export YOUR_API_SECRET=''
+export YOUR_API_KEY=''
+export CSRFTRUSTEDORIGINS='https://urlproporcionadaporheroku.herokuapp.com','http://127.0.0.1'
+export DATABASE_URL=''
+```
+o crear el archivo `coderhouse_project/.env` con el siguente contenido
+
+```text
+CLOUDINARY_URL=
+YOUR_CLOUD_NAME=
+YOUR_API_SECRET=
+YOUR_API_KEY=
+CSRFTRUSTEDORIGINS='https://coderhouse-django-blog.herokuapp.com','https://blog.appspot.cc','http://127.0.0.1'
+DATABASE_URL=
+SECRET_KEY=4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs
+DEBUG=True
+ALLOWED_HOSTS=*,
+```
+
+- Instalar las dependencias del proyecto
+
+```bash
+
+pip install -r requirements.txt
+```
+
+- Crear base de datos a partir de las migraciones
+
+```bash
+python manage.py migrate
+```
+
+- Crear super-usuario
+
+```bash
+python manage.py createsuperuser
+```
+
+
+- Crear estáticos
+
+```bash
+python manage.py collectstatic
+```
+
+- Ejecutar proyecto
+
+```bash
+python manage.py runserver
+```
+
 ### Video acerca del funcionamiento de funcionamiento de la web
 
 [![Ver el video](https://i.imgur.com/DrcBOej.png)](https://www.youtube.com/watch?v=bjnPIGNMApw)
