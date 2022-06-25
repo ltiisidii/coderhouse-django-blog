@@ -163,10 +163,17 @@ DEBUG=True
 ALLOWED_HOSTS=*,
 ```
 
+#### Nota:
+CLOUDINARY_URL=Este valor lo obtenemos en el dashboard de [cloudinary](https://cloudinary.com/console/)
+YOUR_CLOUD_NAME=Este valor lo obtenemos [cloudinary](https://cloudinary.com/console/)
+YOUR_API_SECRET=Este valor lo obtenemos [cloudinary](https://cloudinary.com/console/)
+YOUR_API_KEY=Este valor lo obtenemos [cloudinary](https://cloudinary.com/console/)
+DATABASE_URL=Este valor lo obtenemos de Heroku Postgres Resource (addon), una vez generada la base de datos obtendremos este valor dentro de las [Config Vars del proyecto](https://dashboard.heroku.com/apps/Nombredelproyecto/settings)
 
 
 - Instalar las dependencias del proyecto
-Nota: es posible que tengamos un error al querer instalar django_heroku una de las soluciones puede ser la siguiente:
+
+#### Nota: es posible que tengamos un error al querer instalar django_heroku una de las soluciones puede ser la siguiente:
 
 ```bash
 sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
