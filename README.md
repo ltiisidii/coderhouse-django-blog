@@ -163,7 +163,15 @@ DEBUG=True
 ALLOWED_HOSTS=*,
 ```
 
+
+
 - Instalar las dependencias del proyecto
+Nota: es posible que tengamos un error al querer instalar django_heroku una de las soluciones puede ser la siguiente:
+
+```bash
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+```
+
 
 ```bash
 
